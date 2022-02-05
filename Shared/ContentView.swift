@@ -6,7 +6,6 @@
 //
 
 import Combine
-import CoreData
 import SwiftUI
 
 // MARK: - ViewModel
@@ -17,6 +16,7 @@ final class ViewModel: ObservableObject {
   // MARK: - Private
   private var subscriptions: Set<AnyCancellable> = []
   private let persistenceService: PersistenceServiceProtocol
+  private var watchedItems: WatchedItems?
   struct Cell: Hashable, Identifiable {
     var title: String
     var id: Date
@@ -24,24 +24,37 @@ final class ViewModel: ObservableObject {
   // MARK: - Init
   init(persistenceService: PersistenceServiceProtocol = PersistenceService()) {
     self.persistenceService = persistenceService
-    let formatter = DateFormatter()
-    formatter.dateStyle = .full
-    formatter.timeStyle = .medium
-    persistenceService
-      .publisher(for: .all)
-      .map { items in
-        items.map { item in Cell(title: formatter.string(from: item.timeStamp), id: item.timeStamp) }
-      }
-      .assign(to: &$cells)
   }
 
+  func startWatching() async {
+    
+    let formatter = DateFormatter()
+    formatter.dateStyle = .medium
+    formatter.timeStyle = .medium
+    
+    watchedItems = await persistenceService.watchedItems(for: .all)
+    watchedItems?.publisher
+      .receive(on: DispatchQueue.main)
+      .map { items in
+        items.map { item in Cell(title: formatter.string(from: item.timeStamp), id: item.timeStamp) }
+      }.sink { [weak self] values in
+        withAnimation {
+          self?.cells = values
+        }
+      }.store(in: &subscriptions)
+  }
+  
   func addItem() {
-    _ = try? persistenceService.create(timeStamp: Date())
+    Task {
+       try await persistenceService.create(timeStamp: Date())
+    }
   }
 
   func deleteItems(at offsets: IndexSet) {
-    offsets.forEach { offset in
-      try? persistenceService.delete(id: cells[offset].id)
+    Task {
+      for offset in offsets {
+        try? await persistenceService.delete(id: cells[offset].id)
+      }
     }
   }
 }
@@ -57,6 +70,8 @@ struct ContentView: View {
         Text(cell.title)
       }
       .onDelete(perform: viewModel.deleteItems(at:))
+    }.task {
+      await viewModel.startWatching()
     }
     .toolbar {
       Button(action: viewModel.addItem) {

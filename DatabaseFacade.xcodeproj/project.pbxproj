@@ -11,8 +11,6 @@
 		036B07912659A2D7002CD114 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036B078F2659A2D7002CD114 /* Services.swift */; };
 		036B07932659AA26002CD114 /* PersistenceServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036B07922659AA26002CD114 /* PersistenceServiceProtocol.swift */; };
 		036B07942659AA26002CD114 /* PersistenceServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036B07922659AA26002CD114 /* PersistenceServiceProtocol.swift */; };
-		036B07962659AA4F002CD114 /* MockPersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036B07952659AA4F002CD114 /* MockPersistenceService.swift */; };
-		036B07972659AA4F002CD114 /* MockPersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036B07952659AA4F002CD114 /* MockPersistenceService.swift */; };
 		03853D55265958A000C3C6EB /* DatabaseFacade.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03853D3F2659589F00C3C6EB /* DatabaseFacade.xcdatamodeld */; };
 		03853D56265958A000C3C6EB /* DatabaseFacade.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03853D3F2659589F00C3C6EB /* DatabaseFacade.xcdatamodeld */; };
 		03853D57265958A000C3C6EB /* DatabaseFacadeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03853D412659589F00C3C6EB /* DatabaseFacadeApp.swift */; };
@@ -23,6 +21,10 @@
 		03853D5C265958A000C3C6EB /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03853D432659589F00C3C6EB /* PersistenceService.swift */; };
 		03853D5D265958A000C3C6EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03853D44265958A000C3C6EB /* Assets.xcassets */; };
 		03853D5E265958A000C3C6EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03853D44265958A000C3C6EB /* Assets.xcassets */; };
+		5D38F80027AF02D4009C8958 /* WatchedCoreDataValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D38F7FF27AF02D4009C8958 /* WatchedCoreDataValues.swift */; };
+		5D38F80127AF02D4009C8958 /* WatchedCoreDataValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D38F7FF27AF02D4009C8958 /* WatchedCoreDataValues.swift */; };
+		5D38F80227AF0EFA009C8958 /* MockPersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036B07952659AA4F002CD114 /* MockPersistenceService.swift */; };
+		5D38F80327AF0EFB009C8958 /* MockPersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036B07952659AA4F002CD114 /* MockPersistenceService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,7 @@
 		03853D51265958A000C3C6EB /* DatabaseFacade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DatabaseFacade.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03853D53265958A000C3C6EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03853D54265958A000C3C6EB /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		5D38F7FF27AF02D4009C8958 /* WatchedCoreDataValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchedCoreDataValues.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,7 @@
 				03853D432659589F00C3C6EB /* PersistenceService.swift */,
 				036B07922659AA26002CD114 /* PersistenceServiceProtocol.swift */,
 				036B07952659AA4F002CD114 /* MockPersistenceService.swift */,
+				5D38F7FF27AF02D4009C8958 /* WatchedCoreDataValues.swift */,
 				03853D44265958A000C3C6EB /* Assets.xcassets */,
 				03853D3F2659589F00C3C6EB /* DatabaseFacade.xcdatamodeld */,
 			);
@@ -208,12 +212,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				036B07932659AA26002CD114 /* PersistenceServiceProtocol.swift in Sources */,
-				036B07962659AA4F002CD114 /* MockPersistenceService.swift in Sources */,
+				5D38F80027AF02D4009C8958 /* WatchedCoreDataValues.swift in Sources */,
 				036B07902659A2D7002CD114 /* Services.swift in Sources */,
 				03853D57265958A000C3C6EB /* DatabaseFacadeApp.swift in Sources */,
 				03853D5B265958A000C3C6EB /* PersistenceService.swift in Sources */,
 				03853D55265958A000C3C6EB /* DatabaseFacade.xcdatamodeld in Sources */,
 				03853D59265958A000C3C6EB /* ContentView.swift in Sources */,
+				5D38F80227AF0EFA009C8958 /* MockPersistenceService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,12 +227,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				036B07942659AA26002CD114 /* PersistenceServiceProtocol.swift in Sources */,
-				036B07972659AA4F002CD114 /* MockPersistenceService.swift in Sources */,
+				5D38F80127AF02D4009C8958 /* WatchedCoreDataValues.swift in Sources */,
 				036B07912659A2D7002CD114 /* Services.swift in Sources */,
 				03853D58265958A000C3C6EB /* DatabaseFacadeApp.swift in Sources */,
 				03853D5C265958A000C3C6EB /* PersistenceService.swift in Sources */,
 				03853D56265958A000C3C6EB /* DatabaseFacade.xcdatamodeld in Sources */,
 				03853D5A265958A000C3C6EB /* ContentView.swift in Sources */,
+				5D38F80327AF0EFB009C8958 /* MockPersistenceService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +291,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -338,6 +346,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -354,7 +364,7 @@
 				DEVELOPMENT_TEAM = L4WMJSL77G;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -376,7 +386,7 @@
 				DEVELOPMENT_TEAM = L4WMJSL77G;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -406,7 +416,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
 				PRODUCT_BUNDLE_IDENTIFIER = joshhomann.DatabaseFacade;
 				PRODUCT_NAME = DatabaseFacade;
 				SDKROOT = macosx;
@@ -430,7 +440,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
 				PRODUCT_BUNDLE_IDENTIFIER = joshhomann.DatabaseFacade;
 				PRODUCT_NAME = DatabaseFacade;
 				SDKROOT = macosx;

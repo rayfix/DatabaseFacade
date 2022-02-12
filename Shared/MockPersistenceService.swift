@@ -8,12 +8,6 @@
 import Combine
 import Foundation
 
-final class WatchedItemsMock: WatchedItems {
-  init(publisher: AnyPublisher<[Item], Never>) {
-    self.publisher = publisher
-  }
-  var publisher: AnyPublisher<[Item], Never>
-}
 
 actor MockPersistenceService: PersistenceServiceProtocol {
   @Published var items: [Item] = (0..<10).map { Item(timeStamp: Date.distantFuture + TimeInterval($0)) }
@@ -32,8 +26,7 @@ actor MockPersistenceService: PersistenceServiceProtocol {
     items
   }
   
-  func watchedItems(for query: Item.Query) async -> WatchedItems {
-    WatchedItemsMock(publisher: $items.eraseToAnyPublisher())
+  func publisher(for: Item.Query) async -> AnyPublisher<[Item], Never> {
+    $items.eraseToAnyPublisher()
   }
-  
 }

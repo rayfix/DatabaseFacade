@@ -25,7 +25,18 @@
 		5D38F80127AF02D4009C8958 /* WatchedCoreDataValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D38F7FF27AF02D4009C8958 /* WatchedCoreDataValues.swift */; };
 		5D38F80227AF0EFA009C8958 /* MockPersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036B07952659AA4F002CD114 /* MockPersistenceService.swift */; };
 		5D38F80327AF0EFB009C8958 /* MockPersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036B07952659AA4F002CD114 /* MockPersistenceService.swift */; };
+		5DE9EEE427B83AF000FE59EF /* DatabaseFacadeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE9EEE327B83AF000FE59EF /* DatabaseFacadeTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5DE9EEE527B83AF000FE59EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03853D3A2659589F00C3C6EB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03853D48265958A000C3C6EB;
+			remoteInfo = "DatabaseFacade (iOS)";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		036B078F2659A2D7002CD114 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
@@ -42,6 +53,8 @@
 		03853D53265958A000C3C6EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03853D54265958A000C3C6EB /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		5D38F7FF27AF02D4009C8958 /* WatchedCoreDataValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchedCoreDataValues.swift; sourceTree = "<group>"; };
+		5DE9EEE127B83AEF00FE59EF /* DatabaseFacadeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DatabaseFacadeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DE9EEE327B83AF000FE59EF /* DatabaseFacadeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseFacadeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +72,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5DE9EEDE27B83AEF00FE59EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -68,6 +88,7 @@
 				03853D3E2659589F00C3C6EB /* Shared */,
 				03853D4B265958A000C3C6EB /* iOS */,
 				03853D52265958A000C3C6EB /* macOS */,
+				5DE9EEE227B83AEF00FE59EF /* DatabaseFacadeTests */,
 				03853D4A265958A000C3C6EB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,6 +114,7 @@
 			children = (
 				03853D49265958A000C3C6EB /* DatabaseFacade.app */,
 				03853D51265958A000C3C6EB /* DatabaseFacade.app */,
+				5DE9EEE127B83AEF00FE59EF /* DatabaseFacadeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,6 +134,14 @@
 				03853D54265958A000C3C6EB /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		5DE9EEE227B83AEF00FE59EF /* DatabaseFacadeTests */ = {
+			isa = PBXGroup;
+			children = (
+				5DE9EEE327B83AF000FE59EF /* DatabaseFacadeTests.swift */,
+			);
+			path = DatabaseFacadeTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,13 +181,31 @@
 			productReference = 03853D51265958A000C3C6EB /* DatabaseFacade.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5DE9EEE027B83AEF00FE59EF /* DatabaseFacadeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DE9EEE727B83AF000FE59EF /* Build configuration list for PBXNativeTarget "DatabaseFacadeTests" */;
+			buildPhases = (
+				5DE9EEDD27B83AEF00FE59EF /* Sources */,
+				5DE9EEDE27B83AEF00FE59EF /* Frameworks */,
+				5DE9EEDF27B83AEF00FE59EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5DE9EEE627B83AF000FE59EF /* PBXTargetDependency */,
+			);
+			name = DatabaseFacadeTests;
+			productName = DatabaseFacadeTests;
+			productReference = 5DE9EEE127B83AEF00FE59EF /* DatabaseFacadeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		03853D3A2659589F00C3C6EB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					03853D48265958A000C3C6EB = {
@@ -165,6 +213,10 @@
 					};
 					03853D50265958A000C3C6EB = {
 						CreatedOnToolsVersion = 12.5;
+					};
+					5DE9EEE027B83AEF00FE59EF = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 03853D48265958A000C3C6EB;
 					};
 				};
 			};
@@ -183,6 +235,7 @@
 			targets = (
 				03853D48265958A000C3C6EB /* DatabaseFacade (iOS) */,
 				03853D50265958A000C3C6EB /* DatabaseFacade (macOS) */,
+				5DE9EEE027B83AEF00FE59EF /* DatabaseFacadeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -201,6 +254,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				03853D5E265958A000C3C6EB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DE9EEDF27B83AEF00FE59EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +297,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5DE9EEDD27B83AEF00FE59EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DE9EEE427B83AF000FE59EF /* DatabaseFacadeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5DE9EEE627B83AF000FE59EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03853D48265958A000C3C6EB /* DatabaseFacade (iOS) */;
+			targetProxy = 5DE9EEE527B83AF000FE59EF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		03853D5F265958A000C3C6EB /* Debug */ = {
@@ -291,8 +367,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				MACOSX_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -346,8 +422,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				MACOSX_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -408,7 +484,7 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = L4WMJSL77G;
+				DEVELOPMENT_TEAM = Y2JLK838WQ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
@@ -432,7 +508,7 @@
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = L4WMJSL77G;
+				DEVELOPMENT_TEAM = Y2JLK838WQ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
@@ -445,6 +521,49 @@
 				PRODUCT_NAME = DatabaseFacade;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		5DE9EEE827B83AF000FE59EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y2JLK838WQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.rayfix.DatabaseFacadeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DatabaseFacade.app/DatabaseFacade";
+			};
+			name = Debug;
+		};
+		5DE9EEE927B83AF000FE59EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y2JLK838WQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.rayfix.DatabaseFacadeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DatabaseFacade.app/DatabaseFacade";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -474,6 +593,15 @@
 			buildConfigurations = (
 				03853D65265958A000C3C6EB /* Debug */,
 				03853D66265958A000C3C6EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5DE9EEE727B83AF000FE59EF /* Build configuration list for PBXNativeTarget "DatabaseFacadeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DE9EEE827B83AF000FE59EF /* Debug */,
+				5DE9EEE927B83AF000FE59EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -8,5 +8,5 @@
 import Combine
 
 final class Services: ObservableObject {
-  let persistenceService: PersistenceServiceProtocol = PersistenceService()
+  let persistenceService: PersistenceServiceProtocol = PersistenceService(inMemory: false)
 }

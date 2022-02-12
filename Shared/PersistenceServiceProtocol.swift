@@ -8,15 +8,12 @@
 import Combine
 import Foundation
 
-protocol WatchedItems: AnyObject {
-  var publisher: AnyPublisher<[Item], Never> { get }
-}
 
 protocol PersistenceServiceProtocol {
   @discardableResult
   func create(timeStamp: Date) async throws -> Item
   func delete(id: Date) async throws
-  func watchedItems(for: Item.Query) async -> WatchedItems
+  func publisher(for: Item.Query) async -> AnyPublisher<[Item], Never>
 }
 
 struct Item: Hashable, Identifiable {

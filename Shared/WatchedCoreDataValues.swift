@@ -16,16 +16,18 @@ protocol ValueTypeConvertable {
 
 // A private fetched results controller delegate that can publish
 
-private final class FetchEngine<ValueType, CoreDataType>: NSObject, NSFetchedResultsControllerDelegate where CoreDataType: ValueTypeConvertable, CoreDataType.ValueType == ValueType
+private final class FetchEngine<ValueType, CoreDataType>: NSObject,
+    NSFetchedResultsControllerDelegate where CoreDataType: ValueTypeConvertable & NSFetchRequestResult,
+                                              CoreDataType.ValueType == ValueType
 {
-  private let controller: NSFetchedResultsController<NSFetchRequestResult>
+  private let controller: NSFetchedResultsController<CoreDataType>
   weak var target: WatchedCoreDataValues<ValueType, CoreDataType>?
   
-  init(fetchRequest: NSFetchRequest<NSFetchRequestResult>, context: NSManagedObjectContext) {
-    controller = NSFetchedResultsController<NSFetchRequestResult>(fetchRequest: fetchRequest,
-                                                                  managedObjectContext: context,
-                                                                  sectionNameKeyPath: nil,
-                                                                  cacheName: nil)
+  init(fetchRequest: NSFetchRequest<CoreDataType>, context: NSManagedObjectContext) {
+    controller = NSFetchedResultsController<CoreDataType>(fetchRequest: fetchRequest,
+                                                          managedObjectContext: context,
+                                                          sectionNameKeyPath: nil,
+                                                          cacheName: nil)
     super.init()
   }
   
@@ -48,15 +50,18 @@ private final class FetchEngine<ValueType, CoreDataType>: NSObject, NSFetchedRes
   }
   
   func initialValues() -> [ValueType] {
-    guard let results = try? controller.managedObjectContext.fetch(controller.fetchRequest) else {
-      return []
+    let context = controller.managedObjectContext
+    return context.performAndWait {
+      guard let results = try? context.fetch(controller.fetchRequest) else {
+        return []
+      }
+      return transform(results)
     }
-    return transform(results)
   }
 }
 
 final class WatchedCoreDataValues<ValueType, CoreDataType>: ObservableObject
-  where CoreDataType: ValueTypeConvertable, CoreDataType.ValueType == ValueType
+  where CoreDataType: ValueTypeConvertable & NSFetchRequestResult, CoreDataType.ValueType == ValueType
 {
   var publisher: AnyPublisher<[ValueType], Never> {
     return results
@@ -67,7 +72,7 @@ final class WatchedCoreDataValues<ValueType, CoreDataType>: ObservableObject
   fileprivate let results = PassthroughSubject<[ValueType], Never>()
   
   private let fetcher: FetchEngine<ValueType, CoreDataType>
-  init(fetchRequest: NSFetchRequest<NSFetchRequestResult>, context: NSManagedObjectContext) {
+  init(fetchRequest: NSFetchRequest<CoreDataType>, context: NSManagedObjectContext) {
     fetcher = FetchEngine(fetchRequest: fetchRequest, context: context)
     fetcher.start(target: self)
   }

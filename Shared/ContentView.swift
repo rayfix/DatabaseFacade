@@ -16,13 +16,12 @@ final class ViewModel: ObservableObject {
   // MARK: - Private
   private var subscriptions: Set<AnyCancellable> = []
   private let persistenceService: PersistenceServiceProtocol
-  private var watchedItems: WatchedItems?
   struct Cell: Hashable, Identifiable {
     var title: String
     var id: Date
   }
   // MARK: - Init
-  init(persistenceService: PersistenceServiceProtocol = PersistenceService()) {
+  init(persistenceService: PersistenceServiceProtocol = PersistenceService(inMemory: false)) {
     self.persistenceService = persistenceService
   }
 
@@ -32,8 +31,7 @@ final class ViewModel: ObservableObject {
     formatter.dateStyle = .medium
     formatter.timeStyle = .medium
     
-    watchedItems = await persistenceService.watchedItems(for: .all)
-    watchedItems?.publisher
+    await persistenceService.publisher(for: .all)
       .receive(on: DispatchQueue.main)
       .map { items in
         items.map { item in Cell(title: formatter.string(from: item.timeStamp), id: item.timeStamp) }
